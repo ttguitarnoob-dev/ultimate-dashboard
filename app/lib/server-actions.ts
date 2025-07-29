@@ -4,7 +4,7 @@
 
 import { prisma } from "./db";
 
-export async function GetCarryItemsI() {
+export async function GetCarryItems() {
 
     try {
         const items = await prisma.carryItem.findMany({
