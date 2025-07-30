@@ -12,7 +12,7 @@ export default function CarryItemCard({ name, item, createdAt }: CarryItemProps)
   });
 
   return (
-    <div className="flex items-center gap-4 bg-blue-100 text-blue-900 px-4 py-2 rounded-full text-sm whitespace-nowrap overflow-auto">
+    <div className="flex items-center gap-4 backdrop-blur-lg bg-black/20 dark:bg-white/10 px-4 py-2 rounded-full text-sm whitespace-nowrap overflow-auto">
       <span className="font-semibold">{name}</span>
       <span>•</span>
       <span>{item}</span>

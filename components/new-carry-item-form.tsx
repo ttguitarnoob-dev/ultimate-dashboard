@@ -12,6 +12,7 @@ export default function NewCarryItemForm() {
   async function handleSubmit() {
     try {
       await createCarryItem({ name, item });
+      
       // Optionally reset form or show success message here
     } catch (error) {
       console.error("Submission failed:", error);

@@ -16,7 +16,7 @@ export async function createCarryItem({
         item,
       },
     });
-    console.log("FINISH", newCarryItem)
+    revalidatePath("/carry-list")
     return newCarryItem;
   } catch (error) {
     console.error('Error creating CarryItem:', error);
@@ -24,6 +24,7 @@ export async function createCarryItem({
   }
 }
 
+import { revalidatePath } from "next/cache";
 //GET CARRY ITEMS
 
 import { prisma } from "./db";

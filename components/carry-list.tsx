@@ -9,10 +9,14 @@ export default async function CarryList() {
     return (
 
         <>
-            <div>
+            <div className="space-y-2">
                 {items.map((item) => (
                     <div key={item.id}>
-                        <CarryItemCard name={item.name} item={item.item} createdAt={item.createdAt} />
+                        <CarryItemCard
+                            name={item.name}
+                            item={item.item}
+                            createdAt={item.createdAt}
+                        />
                     </div>
                 ))}
             </div>
