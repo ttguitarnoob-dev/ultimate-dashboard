@@ -1,4 +1,28 @@
+"use server"
 
+//CREATE CARRY ITEM
+
+export async function createCarryItem({
+  name,
+  item,
+}: {
+  name: string;
+  item: string;
+}) {
+  try {
+    const newCarryItem = await prisma.carryItem.create({
+      data: {
+        name,
+        item,
+      },
+    });
+    console.log("FINISH", newCarryItem)
+    return newCarryItem;
+  } catch (error) {
+    console.error('Error creating CarryItem:', error);
+    throw new Error('Failed to create CarryItem');
+  }
+}
 
 //GET CARRY ITEMS
 
