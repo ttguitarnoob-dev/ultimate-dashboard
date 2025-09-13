@@ -1,4 +1,5 @@
-import { GetCarryItems } from "@/app/lib/server-actions";
+"use client"
+
 import {
   Table,
   TableBody,
@@ -9,11 +10,11 @@ import {
 } from "@heroui/table";
 
 type Item = {
-  id: string | number;
-  name: string;
-  item: string;
-  createdAt: string | Date;
-};
+    id: string | number;
+    name: string;
+    item: string;
+    createdAt: string | Date;
+  };
 
 const columns = [
   { uid: "name", name: "Carrier" },
@@ -21,20 +22,12 @@ const columns = [
   { uid: "createdAt", name: "Date" },
 ];
 
-export default async function CarryList() {
-  // ✅ Await the promise
-  const rawItems = await GetCarryItems();
-
-  // ✅ Narrow down to Item[]
-  const items: Item[] = rawItems.map((i) => ({
-    id: i.id,
-    name: i.name,
-    item: i.item,
-    createdAt: i.createdAt,
-  }));
+export default function CarryList({ items }: { items: Iterable<Item> }) {
+  
 
   return (
-    <Table aria-label="Items table">
+    
+    <Table isStriped aria-label="Items table">
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.uid}>{column.name}</TableColumn>}
       </TableHeader>
